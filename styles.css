@@ -1,0 +1,95 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .todo-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3f4a8c;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  button.remove-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+  
+  button.remove-btn:hover {
+    text-decoration: underline;
+  }
+  
+  button.edit-btn {
+    background: transparent;
+    border: none;
+    color: #5c6bc0;
+    cursor: pointer;
+  }
+  
+  button.edit-btn:hover {
+    text-decoration: underline;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  

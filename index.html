@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>To-Do List</h1>
+    <h6>By Abhinav Kumar</h6>
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <button id="addTaskBtn">Add Task</button>
+
+    <div class="filter-buttons">
+      <button id="showAllBtn">Show All</button>
+      <button id="showActiveBtn">Show Active</button>
+      <button id="showCompletedBtn">Show Completed</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<style>
+  body {
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Full viewport height */
+      background-image: url('img.gif'); /* Replace with your GIF path */
+      background-size: auto; /* Makes sure the GIF covers the entire screen */
+      background-position: left bottom; /* Centers the GIF */
+      background-repeat: repeat; /* Prevents the GIF from repeating */
+  }
+</style>
+</html>
