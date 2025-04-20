@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .weather-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #weather-info {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="weather-container">
+    <h1>Weather App</h1>
+    <input type="text" id="city" placeholder="Enter city" />
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weather-info">
+      <!-- Weather information will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    async function getWeather() {
+      const city = document.getElementById("city").value;
+      const apiKey = "ed41e0ce04c84628b60141822252401";  // Your API key
+      const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
+      // Clear previous weather info
+      document.getElementById("weather-info").innerHTML = '';
+
+      // Check if the input field is empty
+      if (!city) {
+        document.getElementById("weather-info").innerHTML = `<p class="error-message">Please enter a city name.</p>`;
+        return;
+      }
+
+      try {
+        // Fetch weather data from the API
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        
+        if (data.error) {
+          document.getElementById("weather-info").innerHTML = `<p class="error-message">Error: ${data.error.message}</p>`;
+        } else {
+          const temperature = data.current.temp_c; // Temperature in Celsius
+          const location = data.location.name;
+          document.getElementById("weather-info").innerHTML = `<p>Temperature in ${location}: ${temperature}°C</p>`;
+        }
+      } catch (error) {
+        document.getElementById("weather-info").innerHTML = `<p class="error-message">Failed to fetch data. Please try again.</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
